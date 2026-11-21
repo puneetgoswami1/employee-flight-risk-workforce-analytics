@@ -1,29 +1,23 @@
-# Employee Flight Risk & Workforce Equity Analytics
+# Employee Attrition Survival & Pay Equity Analytics
 
-A people analytics and workforce retention framework combining compa-ratio pay equity auditing, Kaplan-Meier tenure survival curves, and predictive attrition modeling for core technical roles.
+A people analytics pipeline combining compa-ratio compensation audits, Kaplan-Meier tenure survival curves, and attrition risk scoring for technical teams.
 
-## Overview
-Unplanned attrition among senior engineering and analytics talent creates severe operational disruption and high replacement costs. This project audits internal compensation parity against market midpoints, tracks employee survival rates across tenure milestones, and flags flight-risk cohorts before resignation events occur.
+## Problem Context
+Replacing senior engineers and analysts is expensive, yet compensation compression and promotion delays often go unnoticed until resignations happen. This project audits pay parity against band midpoints and models retention across tenure milestones.
 
-## Project Structure
-- `workforce_equity_attrition.sql`: Production HRIS SQL CTE pipeline calculating compa-ratios, internal pay percentiles, promotion lag, and high-performer pay compression alerts.
-- `attrition_survival_engine.py`: Python statistical engine estimating discrete-time Kaplan-Meier survival probabilities and training a standardized logistic risk classifier.
-- `requirements.txt`: Python package dependencies.
+## Files
+- `workforce_equity_attrition.sql`: HRIS SQL query calculating compa-ratios, internal pay percentiles, and promotion lag alerts.
+- `attrition_survival_engine.py`: Estimates Kaplan-Meier survival probabilities across tenure windows and scores voluntary exit risk.
+- `requirements.txt`: Python dependencies.
 
-## Key Workforce Metrics
-1. **Compa-Ratio Pay Equity:** Measures individual base compensation relative to role/level band midpoints (`Salary / Band_Midpoint`) to isolate pay compression among top performers.
-2. **Kaplan-Meier Tenure Survival:** Tracks cumulative retention probability across 6-, 12-, 24-, and 36-month milestones to identify critical tenure cliff windows.
-3. **Attrition Risk Drivers:** Quantifies the joint impact of compensation lag, promotion stagnation, and sustained overtime load on voluntary exit propensity.
+## How It Works
+1. **Compa-Ratio Audit:** Compares base salary against role/level band midpoints (`Salary / Band_Midpoint`) to flag underpaid high performers.
+2. **Tenure Survival Curves:** Tracks cumulative retention rates at 6, 12, 24, and 36 months to spot tenure cliff drop-offs.
+3. **Risk Drivers:** Evaluates how pay lag, time since last promotion, and sustained overtime correlate with exits.
 
-## How to Run
+## Run Locally
 
-```bash
-# Clone the repository
-git clone [https://github.com/puneetgoswami1/employee-flight-risk-workforce-analytics.git](https://github.com/puneetgoswami1/employee-flight-risk-workforce-analytics.git)
-cd employee-flight-risk-workforce-analytics
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run workforce analytics engine
-python attrition_survival_engine.py
+    git clone https://github.com/puneetgoswami1/employee-flight-risk-workforce-analytics.git
+    cd employee-flight-risk-workforce-analytics
+    pip install -r requirements.txt
+    python attrition_survival_engine.py
